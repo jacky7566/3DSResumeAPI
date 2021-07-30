@@ -48,3 +48,15 @@ Thumbs.db
 *.mov
 *.wmv
 
+/.vs
+/LumMVC_WebAPI/appLog
+/LumMVC_WebAPI/App_Data
+/LumMVC_WebAPI/bin
+/LumMVC_WebAPI/Controllers/bak
+/LumMVC_WebAPI/Controllers/WaferResumeController.cs.bak
+/LumMVC_WebAPI/Controllers/WaferResumeController - Copy.cs
+/LumMVC_WebAPI/Controllers/WaferResumeController - Copy (2).cs
+/LumMVC_WebAPI/Models/Classes/WaferResumeResult.cs.bak
+/LumMVC_WebAPI/Models/Classes/WaferResumeItem.cs~RF14f470e9.TMP
+/LumMVC_WebAPI/obj
+/packages

@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Grading_DevModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TBL_PRODUCT_INFO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="MaskId" Type="nvarchar" MaxLength="20" />
+          <Property Name="MP_RW_Wafer_Id" Type="nvarchar" MaxLength="20" />
+          <Property Name="NPI_RW_Wafer_Id" Type="nvarchar" MaxLength="20" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Creation_Date" Type="datetime" Nullable="false" />
+          <Property Name="Attribute1" Type="nvarchar" MaxLength="500" />
+          <Property Name="Attribute2" Type="nvarchar" MaxLength="500" />
+          <Property Name="Created_By" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBL_SHIPLOGIC_CONFIG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SLCType" Type="nvarchar" MaxLength="20" />
+          <Property Name="SLCKey" Type="nvarchar" MaxLength="20" />
+          <Property Name="IsDisplay" Type="int" />
+          <Property Name="IsCompare" Type="int" />
+          <Property Name="CmpType" Type="nvarchar" MaxLength="50" />
+          <Property Name="CmpCondtion" Type="nvarchar" MaxLength="50" />
+          <Property Name="CmpKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Creation_Date" Type="datetime" />
+          <Property Name="Attribute1" Type="nvarchar" MaxLength="500" />
+          <Property Name="Attribute2" Type="nvarchar" MaxLength="500" />
+          <Property Name="Created_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="CmpParamType" Type="nvarchar" MaxLength="20" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="500" />
+          <Property Name="ErrorGroup" Type="nvarchar" MaxLength="20" />
+          <Property Name="ErrorSeq" Type="nvarchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="TBL_WAFER_RESUME">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Level" Type="nvarchar" MaxLength="10" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" />
+          <Property Name="Wafer_Id" Type="nvarchar" MaxLength="50" />
+          <Property Name="RW_Wafer_Id" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Creation_Date" Type="datetime" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" Nullable="false" />
+          <Property Name="Attribute1" Type="nvarchar" MaxLength="3000" />
+          <Property Name="Attribute2" Type="nvarchar" MaxLength="3000" />
+          <Property Name="Created_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastUpdated_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sys_Updated_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TBL_WAFER_RESUME_HIS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TXN_Type" Type="nvarchar" MaxLength="10" />
+          <Property Name="Level" Type="nvarchar" MaxLength="10" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" />
+          <Property Name="Wafer_Id" Type="nvarchar" MaxLength="50" />
+          <Property Name="RW_Wafer_Id" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+          <Property Name="Creation_Date" Type="datetime" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" Nullable="false" />
+          <Property Name="Attribute1" Type="nvarchar" MaxLength="3000" />
+          <Property Name="Attribute2" Type="nvarchar" MaxLength="3000" />
+          <Property Name="Created_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastUpdated_By" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sys_Updated_Date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TBL_WAFER_RESUME_ITEM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Header_Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" />
+          <Property Name="Key" Type="nvarchar" MaxLength="50" />
+          <Property Name="Value" Type="nvarchar" MaxLength="500" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Creation_Date" Type="datetime" Nullable="false" />
+          <Property Name="Last_Updated_Date" Type="datetime" Nullable="false" />
+          <Property Name="Attribute1" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'grading_dev.dbo.TBL_WAFER_RESUME_LOOKUP' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TBL_WAFER_RESUME_LOOKUP">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Creation_Date" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Level" Type="nvarchar" MaxLength="10" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" />
+          <Property Name="Key" Type="nvarchar" MaxLength="50" />
+          <Property Name="Value" Type="nvarchar" MaxLength="50" />
+          <Property Name="Creation_Date" Type="datetime" Nullable="false" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="Attribute1" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="TBL_WAFER_TXN_LOG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Level" Type="nvarchar" MaxLength="10" />
+          <Property Name="Type" Type="nvarchar" MaxLength="20" />
+          <Property Name="Wafer_Id" Type="nvarchar" MaxLength="50" />
+          <Property Name="RW_Wafer_Id" Type="nvarchar" MaxLength="50" />
+          <Property Name="Log" Type="nvarchar(max)" />
+          <Property Name="Creation_Date" Type="datetime" Nullable="false" />
+          <Property Name="Created_By" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'grading_dev.dbo.TBL_WAFER_RESUME_VIEW' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="TBL_WAFER_RESUME_VIEW">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="HeaderCreation_Date" />
+            <PropertyRef Name="HeaderLast_Updated_Date" />
+            <PropertyRef Name="ItemStatus" />
+            <PropertyRef Name="Header_Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="HeaderLevel" Type="nvarchar" MaxLength="10" />
+          <Property Name="HeaderType" Type="nvarchar" MaxLength="20" />
+          <Property Name="Wafer_Id" Type="nvarchar" MaxLength="50" />
+          <Property Name="RW_Wafer_Id" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="int" />
+          <Property Name="HeaderCreation_Date" Type="datetime" Nullable="false" />
+          <Property Name="HeaderLast_Updated_Date" Type="datetime" Nullable="false" />
+          <Property Name="HeaderAttribute1" Type="nvarchar" MaxLength="3000" />
+          <Property Name="HeaderAttribute2" Type="nvarchar" MaxLength="3000" />
+          <Property Name="ItemType" Type="nvarchar" MaxLength="20" />
+          <Property Name="ItemKey" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemValue" Type="nvarchar" MaxLength="500" />
+          <Property Name="ItemStatus" Type="int" Nullable="false" />
+          <Property Name="ItemAttribute1" Type="nvarchar" MaxLength="100" />
+          <Property Name="Header_Id" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="Grading_DevModelStoreContainer">
+          <EntitySet Name="TBL_PRODUCT_INFO" EntityType="Self.TBL_PRODUCT_INFO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_SHIPLOGIC_CONFIG" EntityType="Self.TBL_SHIPLOGIC_CONFIG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_WAFER_RESUME" EntityType="Self.TBL_WAFER_RESUME" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_WAFER_RESUME_HIS" EntityType="Self.TBL_WAFER_RESUME_HIS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_WAFER_RESUME_ITEM" EntityType="Self.TBL_WAFER_RESUME_ITEM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_WAFER_TXN_LOG" EntityType="Self.TBL_WAFER_TXN_LOG" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_WAFER_RESUME_LOOKUP" EntityType="Self.TBL_WAFER_RESUME_LOOKUP" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TBL_WAFER_RESUME_LOOKUP].[Id] AS [Id], 
+    [TBL_WAFER_RESUME_LOOKUP].[Level] AS [Level], 
+    [TBL_WAFER_RESUME_LOOKUP].[Type] AS [Type], 
+    [TBL_WAFER_RESUME_LOOKUP].[Key] AS [Key], 
+    [TBL_WAFER_RESUME_LOOKUP].[Value] AS [Value], 
+    [TBL_WAFER_RESUME_LOOKUP].[Creation_Date] AS [Creation_Date], 
+    [TBL_WAFER_RESUME_LOOKUP].[Status] AS [Status], 
+    [TBL_WAFER_RESUME_LOOKUP].[Attribute1] AS [Attribute1]
+    FROM [dbo].[TBL_WAFER_RESUME_LOOKUP] AS [TBL_WAFER_RESUME_LOOKUP]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="TBL_WAFER_RESUME_VIEW" EntityType="Self.TBL_WAFER_RESUME_VIEW" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [TBL_WAFER_RESUME_VIEW].[Id] AS [Id], 
+    [TBL_WAFER_RESUME_VIEW].[HeaderLevel] AS [HeaderLevel], 
+    [TBL_WAFER_RESUME_VIEW].[HeaderType] AS [HeaderType], 
+    [TBL_WAFER_RESUME_VIEW].[Wafer_Id] AS [Wafer_Id], 
+    [TBL_WAFER_RESUME_VIEW].[RW_Wafer_Id] AS [RW_Wafer_Id], 
+    [TBL_WAFER_RESUME_VIEW].[Status] AS [Status], 
+    [TBL_WAFER_RESUME_VIEW].[HeaderCreation_Date] AS [HeaderCreation_Date], 
+    [TBL_WAFER_RESUME_VIEW].[HeaderLast_Updated_Date] AS [HeaderLast_Updated_Date], 
+    [TBL_WAFER_RESUME_VIEW].[HeaderAttribute1] AS [HeaderAttribute1], 
+    [TBL_WAFER_RESUME_VIEW].[HeaderAttribute2] AS [HeaderAttribute2], 
+    [TBL_WAFER_RESUME_VIEW].[ItemType] AS [ItemType], 
+    [TBL_WAFER_RESUME_VIEW].[ItemKey] AS [ItemKey], 
+    [TBL_WAFER_RESUME_VIEW].[ItemValue] AS [ItemValue], 
+    [TBL_WAFER_RESUME_VIEW].[ItemStatus] AS [ItemStatus], 
+    [TBL_WAFER_RESUME_VIEW].[ItemAttribute1] AS [ItemAttribute1], 
+    [TBL_WAFER_RESUME_VIEW].[Header_Id] AS [Header_Id]
+    FROM [dbo].[TBL_WAFER_RESUME_VIEW] AS [TBL_WAFER_RESUME_VIEW]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Grading_DevModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="grading_devEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TBL_WAFER_RESUME_HIS" EntityType="Grading_DevModel.TBL_WAFER_RESUME_HIS" />
+          <EntitySet Name="TBL_WAFER_RESUME" EntityType="Grading_DevModel.TBL_WAFER_RESUME" />
+          <EntitySet Name="TBL_WAFER_RESUME_ITEM" EntityType="Grading_DevModel.TBL_WAFER_RESUME_ITEM" />
+          <EntitySet Name="TBL_WAFER_TXN_LOG" EntityType="Grading_DevModel.TBL_WAFER_TXN_LOG" />
+          <EntitySet Name="TBL_PRODUCT_INFO" EntityType="Grading_DevModel.TBL_PRODUCT_INFO" />
+          <EntitySet Name="TBL_WAFER_RESUME_LOOKUP" EntityType="Grading_DevModel.TBL_WAFER_RESUME_LOOKUP" />
+          <EntitySet Name="TBL_SHIPLOGIC_CONFIG" EntityType="Grading_DevModel.TBL_SHIPLOGIC_CONFIG" />
+          <EntitySet Name="TBL_WAFER_RESUME_VIEW" EntityType="Grading_DevModel.TBL_WAFER_RESUME_VIEW" />
+        </EntityContainer>
+        <EntityType Name="TBL_WAFER_RESUME_HIS">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="TXN_Type" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Level" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Wafer_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RW_Wafer_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Creation_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Attribute1" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="Attribute2" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="Created_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdated_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Sys_Updated_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TBL_WAFER_RESUME">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Level" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Wafer_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RW_Wafer_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Creation_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Attribute1" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="Attribute2" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="Created_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastUpdated_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Sys_Updated_Date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="TBL_WAFER_RESUME_ITEM">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Header_Id" Type="Guid" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="Creation_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Last_Updated_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Attribute1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_WAFER_TXN_LOG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Level" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Wafer_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RW_Wafer_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Log" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Creation_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Created_By" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_PRODUCT_INFO">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="ProductName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MaskId" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="MP_RW_Wafer_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="NPI_RW_Wafer_Id" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Creation_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Attribute1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Attribute2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Created_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_WAFER_RESUME_LOOKUP">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="Creation_Date" />
+            <PropertyRef Name="Status" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Level" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Key" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Creation_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Status" Type="Int32" Nullable="false" />
+          <Property Name="Attribute1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_SHIPLOGIC_CONFIG">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="GroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SLCType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SLCKey" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="IsDisplay" Type="Int32" />
+          <Property Name="IsCompare" Type="Int32" />
+          <Property Name="CmpType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CmpCondtion" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CmpKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="Creation_Date" Type="DateTime" Precision="3" />
+          <Property Name="Attribute1" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Attribute2" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Created_By" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CmpParamType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorGroup" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ErrorSeq" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_WAFER_RESUME_VIEW">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="HeaderCreation_Date" />
+            <PropertyRef Name="HeaderLast_Updated_Date" />
+            <PropertyRef Name="ItemStatus" />
+            <PropertyRef Name="Header_Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="HeaderLevel" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="HeaderType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Wafer_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RW_Wafer_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="Int32" />
+          <Property Name="HeaderCreation_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HeaderLast_Updated_Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="HeaderAttribute1" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="HeaderAttribute2" Type="String" MaxLength="3000" FixedLength="false" Unicode="true" />
+          <Property Name="ItemType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ItemKey" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemValue" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ItemStatus" Type="Int32" Nullable="false" />
+          <Property Name="ItemAttribute1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Header_Id" Type="Guid" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Grading_DevModelStoreContainer" CdmEntityContainer="grading_devEntities">
+          <EntitySetMapping Name="TBL_WAFER_RESUME_HIS">
+            <EntityTypeMapping TypeName="Grading_DevModel.TBL_WAFER_RESUME_HIS">
+              <MappingFragment StoreEntitySet="TBL_WAFER_RESUME_HIS">
+                <ScalarProperty Name="Sys_Updated_Date" ColumnName="Sys_Updated_Date" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="LastUpdated_By" ColumnName="LastUpdated_By" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Attribute2" ColumnName="Attribute2" />
+                <ScalarProperty Name="Attribute1" ColumnName="Attribute1" />
+                <ScalarProperty Name="Creation_Date" ColumnName="Creation_Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RW_Wafer_Id" ColumnName="RW_Wafer_Id" />
+                <ScalarProperty Name="Wafer_Id" ColumnName="Wafer_Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="TXN_Type" ColumnName="TXN_Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_WAFER_RESUME">
+            <EntityTypeMapping TypeName="Grading_DevModel.TBL_WAFER_RESUME">
+              <MappingFragment StoreEntitySet="TBL_WAFER_RESUME">
+                <ScalarProperty Name="Sys_Updated_Date" ColumnName="Sys_Updated_Date" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="LastUpdated_By" ColumnName="LastUpdated_By" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Attribute2" ColumnName="Attribute2" />
+                <ScalarProperty Name="Attribute1" ColumnName="Attribute1" />
+                <ScalarProperty Name="Creation_Date" ColumnName="Creation_Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RW_Wafer_Id" ColumnName="RW_Wafer_Id" />
+                <ScalarProperty Name="Wafer_Id" ColumnName="Wafer_Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_WAFER_RESUME_ITEM">
+            <EntityTypeMapping TypeName="Grading_DevModel.TBL_WAFER_RESUME_ITEM">
+              <MappingFragment StoreEntitySet="TBL_WAFER_RESUME_ITEM">
+                <ScalarProperty Name="Attribute1" ColumnName="Attribute1" />
+                <ScalarProperty Name="Last_Updated_Date" ColumnName="Last_Updated_Date" />
+                <ScalarProperty Name="Creation_Date" ColumnName="Creation_Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Header_Id" ColumnName="Header_Id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_WAFER_TXN_LOG">
+            <EntityTypeMapping TypeName="Grading_DevModel.TBL_WAFER_TXN_LOG">
+              <MappingFragment StoreEntitySet="TBL_WAFER_TXN_LOG">
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Creation_Date" ColumnName="Creation_Date" />
+                <ScalarProperty Name="Log" ColumnName="Log" />
+                <ScalarProperty Name="RW_Wafer_Id" ColumnName="RW_Wafer_Id" />
+                <ScalarProperty Name="Wafer_Id" ColumnName="Wafer_Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_PRODUCT_INFO">
+            <EntityTypeMapping TypeName="Grading_DevModel.TBL_PRODUCT_INFO">
+              <MappingFragment StoreEntitySet="TBL_PRODUCT_INFO">
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Attribute2" ColumnName="Attribute2" />
+                <ScalarProperty Name="Attribute1" ColumnName="Attribute1" />
+                <ScalarProperty Name="Creation_Date" ColumnName="Creation_Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="NPI_RW_Wafer_Id" ColumnName="NPI_RW_Wafer_Id" />
+                <ScalarProperty Name="MP_RW_Wafer_Id" ColumnName="MP_RW_Wafer_Id" />
+                <ScalarProperty Name="MaskId" ColumnName="MaskId" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_WAFER_RESUME_LOOKUP">
+            <EntityTypeMapping TypeName="Grading_DevModel.TBL_WAFER_RESUME_LOOKUP">
+              <MappingFragment StoreEntitySet="TBL_WAFER_RESUME_LOOKUP">
+                <ScalarProperty Name="Attribute1" ColumnName="Attribute1" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Creation_Date" ColumnName="Creation_Date" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_SHIPLOGIC_CONFIG">
+            <EntityTypeMapping TypeName="Grading_DevModel.TBL_SHIPLOGIC_CONFIG">
+              <MappingFragment StoreEntitySet="TBL_SHIPLOGIC_CONFIG">
+                <ScalarProperty Name="ErrorSeq" ColumnName="ErrorSeq" />
+                <ScalarProperty Name="ErrorGroup" ColumnName="ErrorGroup" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="CmpParamType" ColumnName="CmpParamType" />
+                <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+                <ScalarProperty Name="Attribute2" ColumnName="Attribute2" />
+                <ScalarProperty Name="Attribute1" ColumnName="Attribute1" />
+                <ScalarProperty Name="Creation_Date" ColumnName="Creation_Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CmpKey" ColumnName="CmpKey" />
+                <ScalarProperty Name="CmpCondtion" ColumnName="CmpCondtion" />
+                <ScalarProperty Name="CmpType" ColumnName="CmpType" />
+                <ScalarProperty Name="IsCompare" ColumnName="IsCompare" />
+                <ScalarProperty Name="IsDisplay" ColumnName="IsDisplay" />
+                <ScalarProperty Name="SLCKey" ColumnName="SLCKey" />
+                <ScalarProperty Name="SLCType" ColumnName="SLCType" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_WAFER_RESUME_VIEW">
+            <EntityTypeMapping TypeName="Grading_DevModel.TBL_WAFER_RESUME_VIEW">
+              <MappingFragment StoreEntitySet="TBL_WAFER_RESUME_VIEW">
+                <ScalarProperty Name="Header_Id" ColumnName="Header_Id" />
+                <ScalarProperty Name="ItemAttribute1" ColumnName="ItemAttribute1" />
+                <ScalarProperty Name="ItemStatus" ColumnName="ItemStatus" />
+                <ScalarProperty Name="ItemValue" ColumnName="ItemValue" />
+                <ScalarProperty Name="ItemKey" ColumnName="ItemKey" />
+                <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+                <ScalarProperty Name="HeaderAttribute2" ColumnName="HeaderAttribute2" />
+                <ScalarProperty Name="HeaderAttribute1" ColumnName="HeaderAttribute1" />
+                <ScalarProperty Name="HeaderLast_Updated_Date" ColumnName="HeaderLast_Updated_Date" />
+                <ScalarProperty Name="HeaderCreation_Date" ColumnName="HeaderCreation_Date" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="RW_Wafer_Id" ColumnName="RW_Wafer_Id" />
+                <ScalarProperty Name="Wafer_Id" ColumnName="Wafer_Id" />
+                <ScalarProperty Name="HeaderType" ColumnName="HeaderType" />
+                <ScalarProperty Name="HeaderLevel" ColumnName="HeaderLevel" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,633 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MadridTestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_bin_code_file_status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="App_Mode" Type="varchar" MaxLength="30" />
+          <Property Name="File_Type" Type="varchar" MaxLength="30" />
+          <Property Name="wafer_id" Type="varchar" MaxLength="20" />
+          <Property Name="rw_wafer_id" Type="varchar" MaxLength="20" />
+          <Property Name="epi_type" Type="varchar" MaxLength="10" />
+          <Property Name="File_path" Type="varchar" MaxLength="1000" />
+          <Property Name="result_path" Type="varchar" MaxLength="1000" />
+          <Property Name="is_Valid" Type="bit" />
+          <Property Name="is_Completed" Type="bit" />
+          <Property Name="error_message" Type="varchar(max)" />
+          <Property Name="loaded_date" Type="datetime" />
+          <Property Name="updated_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="tbl_serial_wat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wafer_id" Type="varchar" MaxLength="500" />
+          <Property Name="filename" Type="varchar" MaxLength="500" />
+          <Property Name="loaded_date" Type="datetime" />
+          <Property Name="dispo_date" Type="varchar" MaxLength="500" />
+          <Property Name="part_id" Type="varchar" MaxLength="500" />
+          <Property Name="fab_wafer_id" Type="varchar" MaxLength="500" />
+          <Property Name="disposition_code" Type="varchar" MaxLength="500" />
+          <Property Name="remap_required" Type="varchar" MaxLength="500" />
+          <Property Name="test_result" Type="varchar" MaxLength="1" />
+          <Property Name="bin_three" Type="varchar" MaxLength="1" />
+          <Property Name="comment" Type="varchar" MaxLength="500" />
+          <Property Name="source_date" Type="varchar" MaxLength="500" />
+          <Property Name="loaded_month" Type="varchar" MaxLength="500" />
+          <Property Name="update_by" Type="varchar" MaxLength="50" />
+          <Property Name="wait_released" Type="varchar" MaxLength="1" />
+          <Property Name="iqe_bouleid" Type="varchar" MaxLength="50" />
+          <Property Name="epi_reactor" Type="varchar" MaxLength="50" />
+          <Property Name="insertion_date" Type="datetime" />
+          <Property Name="source_table" Type="varchar" MaxLength="500" />
+          <Property Name="line_number" Type="varchar" MaxLength="500" />
+          <Property Name="die_count" Type="varchar" MaxLength="500" />
+          <Property Name="spec_failure" Type="varchar" MaxLength="500" />
+          <Property Name="drift_failure" Type="varchar" MaxLength="500" />
+          <Property Name="t0_avg_nf (dppm)" Type="varchar" MaxLength="500" />
+          <Property Name="post_bi_avg_nf (dppm)" Type="varchar" MaxLength="500" />
+          <Property Name="post_wat_avg_nf (dppm)" Type="varchar" MaxLength="500" />
+          <Property Name="shippable_zone (dppm)" Type="varchar" MaxLength="500" />
+          <Property Name="exclusion_zone (dppm)" Type="varchar" MaxLength="500" />
+          <Property Name="t0_max_nf (#/worst die)" Type="varchar" MaxLength="500" />
+          <Property Name="post_bi_max_nf (#/worst die)" Type="varchar" MaxLength="500" />
+          <Property Name="post_wat_max_nf (#/worst die)" Type="varchar" MaxLength="500" />
+          <Property Name="max_po_drift_post_wat (w)" Type="varchar" MaxLength="500" />
+          <Property Name="avg_po_drift_post_wat (w)" Type="varchar" MaxLength="500" />
+          <Property Name="min_po_drift_post_wat (w)" Type="varchar" MaxLength="500" />
+          <Property Name="max_vf_drift_post_wat (v)" Type="varchar" MaxLength="500" />
+          <Property Name="avg_vf_drift_post_wat (v)" Type="varchar" MaxLength="500" />
+          <Property Name="min_vf_drift_post_wat (v)" Type="varchar" MaxLength="500" />
+          <Property Name="max_na_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_na_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_na_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="dead_emitter_map_radar_ref" Type="varchar" MaxLength="500" />
+          <Property Name="max_wl_l_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="avg_wl_l_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="min_wl_l_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="max_wl_r_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="avg_wl_r_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="min_wl_r_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="t0_neighbor_failures (#)" Type="varchar" MaxLength="500" />
+          <Property Name="post_bi_neighbor_failures (#)" Type="varchar" MaxLength="500" />
+          <Property Name="post_wat_neighbor_failures (#)" Type="varchar" MaxLength="500" />
+          <Property Name="max_wl_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="avg_wl_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="min_wl_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="max_w0_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_w0_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_w0_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="max_dense_uni_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="max_sparse_uni_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="Failure" Type="varchar" MaxLength="500" />
+          <Property Name="Final Grading Result Remark" Type="varchar" MaxLength="500" />
+          <Property Name="max_T0_CBP_r_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_T0_CBP_r_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_T0_CBP_r_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="max_T0_CBP_a_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_T0_CBP_a_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_T0_CBP_a_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="max_T0_CBP_q_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_T0_CBP_q_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_T0_CBP_q_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="max_Te_CBP_r_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_Te_CBP_r_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_Te_CBP_r_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="max_Te_CBP_a_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_Te_CBP_a_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_Te_CBP_a_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="max_Te_CBP_q_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_Te_CBP_q_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_Te_CBP_q_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="modify_date" Type="datetime" />
+          <Property Name="hold_note" Type="varchar(max)" />
+          <Property Name="epi_type" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="tbl_serial_wat_history">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="wafer_id" Type="varchar" MaxLength="500" />
+          <Property Name="filename" Type="varchar" MaxLength="500" />
+          <Property Name="loaded_date" Type="datetime" />
+          <Property Name="dispo_date" Type="varchar" MaxLength="500" />
+          <Property Name="part_id" Type="varchar" MaxLength="500" />
+          <Property Name="fab_wafer_id" Type="varchar" MaxLength="500" />
+          <Property Name="disposition_code" Type="varchar" MaxLength="500" />
+          <Property Name="remap_required" Type="varchar" MaxLength="500" />
+          <Property Name="test_result" Type="varchar" MaxLength="1" />
+          <Property Name="bin_three" Type="varchar" MaxLength="1" />
+          <Property Name="comment" Type="varchar" MaxLength="500" />
+          <Property Name="source_date" Type="varchar" MaxLength="500" />
+          <Property Name="loaded_month" Type="varchar" MaxLength="500" />
+          <Property Name="history_insertion_date" Type="datetime" />
+          <Property Name="history_type" Type="varchar" MaxLength="100" />
+          <Property Name="update_by" Type="varchar" MaxLength="50" />
+          <Property Name="wait_released" Type="varchar" MaxLength="1" />
+          <Property Name="iqe_bouleid" Type="varchar" MaxLength="50" />
+          <Property Name="epi_reactor" Type="varchar" MaxLength="50" />
+          <Property Name="insertion_date" Type="datetime" />
+          <Property Name="source_table" Type="varchar" MaxLength="500" />
+          <Property Name="line_number" Type="varchar" MaxLength="500" />
+          <Property Name="die_count" Type="varchar" MaxLength="500" />
+          <Property Name="spec_failure" Type="varchar" MaxLength="500" />
+          <Property Name="drift_failure" Type="varchar" MaxLength="500" />
+          <Property Name="t0_avg_nf (dppm)" Type="varchar" MaxLength="500" />
+          <Property Name="post_bi_avg_nf (dppm)" Type="varchar" MaxLength="500" />
+          <Property Name="post_wat_avg_nf (dppm)" Type="varchar" MaxLength="500" />
+          <Property Name="shippable_zone (dppm)" Type="varchar" MaxLength="500" />
+          <Property Name="exclusion_zone (dppm)" Type="varchar" MaxLength="500" />
+          <Property Name="t0_max_nf (#/worst die)" Type="varchar" MaxLength="500" />
+          <Property Name="post_bi_max_nf (#/worst die)" Type="varchar" MaxLength="500" />
+          <Property Name="post_wat_max_nf (#/worst die)" Type="varchar" MaxLength="500" />
+          <Property Name="max_po_drift_post_wat (w)" Type="varchar" MaxLength="500" />
+          <Property Name="avg_po_drift_post_wat (w)" Type="varchar" MaxLength="500" />
+          <Property Name="min_po_drift_post_wat (w)" Type="varchar" MaxLength="500" />
+          <Property Name="max_vf_drift_post_wat (v)" Type="varchar" MaxLength="500" />
+          <Property Name="avg_vf_drift_post_wat (v)" Type="varchar" MaxLength="500" />
+          <Property Name="min_vf_drift_post_wat (v)" Type="varchar" MaxLength="500" />
+          <Property Name="max_na_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_na_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_na_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="dead_emitter_map_radar_ref" Type="varchar" MaxLength="500" />
+          <Property Name="max_wl_l_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="avg_wl_l_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="min_wl_l_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="max_wl_r_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="avg_wl_r_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="min_wl_r_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="t0_neighbor_failures (#)" Type="varchar" MaxLength="500" />
+          <Property Name="post_bi_neighbor_failures (#)" Type="varchar" MaxLength="500" />
+          <Property Name="post_wat_neighbor_failures (#)" Type="varchar" MaxLength="500" />
+          <Property Name="max_wl_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="avg_wl_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="min_wl_drift_post_wat (nm)" Type="varchar" MaxLength="500" />
+          <Property Name="max_w0_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_w0_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_w0_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="max_dense_uni_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="max_sparse_uni_drift_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="Failure" Type="varchar" MaxLength="500" />
+          <Property Name="Final Grading Result Remark" Type="varchar" MaxLength="500" />
+          <Property Name="max_T0_CBP_r_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_T0_CBP_r_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_T0_CBP_r_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="max_T0_CBP_a_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_T0_CBP_a_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_T0_CBP_a_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="max_T0_CBP_q_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_T0_CBP_q_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_T0_CBP_q_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="max_Te_CBP_r_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_Te_CBP_r_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_Te_CBP_r_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="max_Te_CBP_a_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_Te_CBP_a_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_Te_CBP_a_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="max_Te_CBP_q_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="avg_Te_CBP_q_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="min_Te_CBP_q_post_wat" Type="varchar" MaxLength="500" />
+          <Property Name="modify_date" Type="datetime" />
+          <Property Name="epi_type" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityContainer Name="MadridTestModelStoreContainer">
+          <EntitySet Name="tbl_bin_code_file_status" EntityType="Self.tbl_bin_code_file_status" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_serial_wat" EntityType="Self.tbl_serial_wat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_serial_wat_history" EntityType="Self.tbl_serial_wat_history" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MadridTestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_bin_code_file_status">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="App_Mode" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="File_Type" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="wafer_id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="rw_wafer_id" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="epi_type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="File_path" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="result_path" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="is_Valid" Type="Boolean" />
+          <Property Name="is_Completed" Type="Boolean" />
+          <Property Name="error_message" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="loaded_date" Type="DateTime" Precision="3" />
+          <Property Name="updated_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="MadridTestEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_bin_code_file_status" EntityType="Self.tbl_bin_code_file_status" />
+          <EntitySet Name="tbl_serial_wat" EntityType="MadridTestModel.tbl_serial_wat" />
+          <EntitySet Name="tbl_serial_wat_history" EntityType="MadridTestModel.tbl_serial_wat_history" />
+        </EntityContainer>
+        <EntityType Name="tbl_serial_wat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wafer_id" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="filename" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="loaded_date" Type="DateTime" Precision="3" />
+          <Property Name="dispo_date" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="part_id" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fab_wafer_id" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="disposition_code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="remap_required" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="test_result" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="bin_three" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="source_date" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="loaded_month" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="update_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="wait_released" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="iqe_bouleid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="epi_reactor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="insertion_date" Type="DateTime" Precision="3" />
+          <Property Name="source_table" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="line_number" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="die_count" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="spec_failure" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="drift_failure" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="t0_avg_nf__dppm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="post_bi_avg_nf__dppm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="post_wat_avg_nf__dppm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="shippable_zone__dppm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="exclusion_zone__dppm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="t0_max_nf____worst_die_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="post_bi_max_nf____worst_die_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="post_wat_max_nf____worst_die_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_po_drift_post_wat__w_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_po_drift_post_wat__w_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_po_drift_post_wat__w_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_vf_drift_post_wat__v_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_vf_drift_post_wat__v_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_vf_drift_post_wat__v_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_na_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_na_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_na_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dead_emitter_map_radar_ref" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_wl_l_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_wl_l_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_wl_l_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_wl_r_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_wl_r_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_wl_r_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="t0_neighbor_failures____" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="post_bi_neighbor_failures____" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="post_wat_neighbor_failures____" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_wl_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_wl_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_wl_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_w0_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_w0_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_w0_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_dense_uni_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_sparse_uni_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Failure" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Final_Grading_Result_Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_T0_CBP_r_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_T0_CBP_r_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_T0_CBP_r_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_T0_CBP_a_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_T0_CBP_a_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_T0_CBP_a_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_T0_CBP_q_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_T0_CBP_q_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_T0_CBP_q_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_Te_CBP_r_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_Te_CBP_r_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_Te_CBP_r_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_Te_CBP_a_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_Te_CBP_a_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_Te_CBP_a_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_Te_CBP_q_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_Te_CBP_q_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_Te_CBP_q_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="modify_date" Type="DateTime" Precision="3" />
+          <Property Name="hold_note" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="epi_type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tbl_serial_wat_history">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="wafer_id" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="filename" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="loaded_date" Type="DateTime" Precision="3" />
+          <Property Name="dispo_date" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="part_id" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="fab_wafer_id" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="disposition_code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="remap_required" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="test_result" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="bin_three" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="comment" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="source_date" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="loaded_month" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="history_insertion_date" Type="DateTime" Precision="3" />
+          <Property Name="history_type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="update_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="wait_released" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="iqe_bouleid" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="epi_reactor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="insertion_date" Type="DateTime" Precision="3" />
+          <Property Name="source_table" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="line_number" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="die_count" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="spec_failure" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="drift_failure" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="t0_avg_nf__dppm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="post_bi_avg_nf__dppm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="post_wat_avg_nf__dppm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="shippable_zone__dppm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="exclusion_zone__dppm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="t0_max_nf____worst_die_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="post_bi_max_nf____worst_die_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="post_wat_max_nf____worst_die_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_po_drift_post_wat__w_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_po_drift_post_wat__w_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_po_drift_post_wat__w_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_vf_drift_post_wat__v_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_vf_drift_post_wat__v_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_vf_drift_post_wat__v_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_na_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_na_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_na_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="dead_emitter_map_radar_ref" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_wl_l_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_wl_l_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_wl_l_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_wl_r_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_wl_r_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_wl_r_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="t0_neighbor_failures____" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="post_bi_neighbor_failures____" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="post_wat_neighbor_failures____" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_wl_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_wl_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_wl_drift_post_wat__nm_" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_w0_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_w0_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_w0_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_dense_uni_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_sparse_uni_drift_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Failure" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Final_Grading_Result_Remark" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_T0_CBP_r_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_T0_CBP_r_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_T0_CBP_r_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_T0_CBP_a_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_T0_CBP_a_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_T0_CBP_a_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_T0_CBP_q_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_T0_CBP_q_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_T0_CBP_q_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_Te_CBP_r_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_Te_CBP_r_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_Te_CBP_r_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_Te_CBP_a_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_Te_CBP_a_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_Te_CBP_a_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="max_Te_CBP_q_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="avg_Te_CBP_q_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="min_Te_CBP_q_post_wat" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="modify_date" Type="DateTime" Precision="3" />
+          <Property Name="epi_type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MadridTestModelStoreContainer" CdmEntityContainer="MadridTestEntities">
+          <EntitySetMapping Name="tbl_bin_code_file_status">
+            <EntityTypeMapping TypeName="MadridTestModel.tbl_bin_code_file_status">
+              <MappingFragment StoreEntitySet="tbl_bin_code_file_status">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="App_Mode" ColumnName="App_Mode" />
+                <ScalarProperty Name="File_Type" ColumnName="File_Type" />
+                <ScalarProperty Name="wafer_id" ColumnName="wafer_id" />
+                <ScalarProperty Name="rw_wafer_id" ColumnName="rw_wafer_id" />
+                <ScalarProperty Name="epi_type" ColumnName="epi_type" />
+                <ScalarProperty Name="File_path" ColumnName="File_path" />
+                <ScalarProperty Name="result_path" ColumnName="result_path" />
+                <ScalarProperty Name="is_Valid" ColumnName="is_Valid" />
+                <ScalarProperty Name="is_Completed" ColumnName="is_Completed" />
+                <ScalarProperty Name="error_message" ColumnName="error_message" />
+                <ScalarProperty Name="loaded_date" ColumnName="loaded_date" />
+                <ScalarProperty Name="updated_date" ColumnName="updated_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_serial_wat">
+            <EntityTypeMapping TypeName="MadridTestModel.tbl_serial_wat">
+              <MappingFragment StoreEntitySet="tbl_serial_wat">
+                <ScalarProperty Name="epi_type" ColumnName="epi_type" />
+                <ScalarProperty Name="hold_note" ColumnName="hold_note" />
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+                <ScalarProperty Name="min_Te_CBP_q_post_wat" ColumnName="min_Te_CBP_q_post_wat" />
+                <ScalarProperty Name="avg_Te_CBP_q_post_wat" ColumnName="avg_Te_CBP_q_post_wat" />
+                <ScalarProperty Name="max_Te_CBP_q_post_wat" ColumnName="max_Te_CBP_q_post_wat" />
+                <ScalarProperty Name="min_Te_CBP_a_post_wat" ColumnName="min_Te_CBP_a_post_wat" />
+                <ScalarProperty Name="avg_Te_CBP_a_post_wat" ColumnName="avg_Te_CBP_a_post_wat" />
+                <ScalarProperty Name="max_Te_CBP_a_post_wat" ColumnName="max_Te_CBP_a_post_wat" />
+                <ScalarProperty Name="min_Te_CBP_r_post_wat" ColumnName="min_Te_CBP_r_post_wat" />
+                <ScalarProperty Name="avg_Te_CBP_r_post_wat" ColumnName="avg_Te_CBP_r_post_wat" />
+                <ScalarProperty Name="max_Te_CBP_r_post_wat" ColumnName="max_Te_CBP_r_post_wat" />
+                <ScalarProperty Name="min_T0_CBP_q_post_wat" ColumnName="min_T0_CBP_q_post_wat" />
+                <ScalarProperty Name="avg_T0_CBP_q_post_wat" ColumnName="avg_T0_CBP_q_post_wat" />
+                <ScalarProperty Name="max_T0_CBP_q_post_wat" ColumnName="max_T0_CBP_q_post_wat" />
+                <ScalarProperty Name="min_T0_CBP_a_post_wat" ColumnName="min_T0_CBP_a_post_wat" />
+                <ScalarProperty Name="avg_T0_CBP_a_post_wat" ColumnName="avg_T0_CBP_a_post_wat" />
+                <ScalarProperty Name="max_T0_CBP_a_post_wat" ColumnName="max_T0_CBP_a_post_wat" />
+                <ScalarProperty Name="min_T0_CBP_r_post_wat" ColumnName="min_T0_CBP_r_post_wat" />
+                <ScalarProperty Name="avg_T0_CBP_r_post_wat" ColumnName="avg_T0_CBP_r_post_wat" />
+                <ScalarProperty Name="max_T0_CBP_r_post_wat" ColumnName="max_T0_CBP_r_post_wat" />
+                <ScalarProperty Name="Final_Grading_Result_Remark" ColumnName="Final Grading Result Remark" />
+                <ScalarProperty Name="Failure" ColumnName="Failure" />
+                <ScalarProperty Name="max_sparse_uni_drift_post_wat" ColumnName="max_sparse_uni_drift_post_wat" />
+                <ScalarProperty Name="max_dense_uni_drift_post_wat" ColumnName="max_dense_uni_drift_post_wat" />
+                <ScalarProperty Name="min_w0_drift_post_wat" ColumnName="min_w0_drift_post_wat" />
+                <ScalarProperty Name="avg_w0_drift_post_wat" ColumnName="avg_w0_drift_post_wat" />
+                <ScalarProperty Name="max_w0_drift_post_wat" ColumnName="max_w0_drift_post_wat" />
+                <ScalarProperty Name="min_wl_drift_post_wat__nm_" ColumnName="min_wl_drift_post_wat (nm)" />
+                <ScalarProperty Name="avg_wl_drift_post_wat__nm_" ColumnName="avg_wl_drift_post_wat (nm)" />
+                <ScalarProperty Name="max_wl_drift_post_wat__nm_" ColumnName="max_wl_drift_post_wat (nm)" />
+                <ScalarProperty Name="post_wat_neighbor_failures____" ColumnName="post_wat_neighbor_failures (#)" />
+                <ScalarProperty Name="post_bi_neighbor_failures____" ColumnName="post_bi_neighbor_failures (#)" />
+                <ScalarProperty Name="t0_neighbor_failures____" ColumnName="t0_neighbor_failures (#)" />
+                <ScalarProperty Name="min_wl_r_drift_post_wat__nm_" ColumnName="min_wl_r_drift_post_wat (nm)" />
+                <ScalarProperty Name="avg_wl_r_drift_post_wat__nm_" ColumnName="avg_wl_r_drift_post_wat (nm)" />
+                <ScalarProperty Name="max_wl_r_drift_post_wat__nm_" ColumnName="max_wl_r_drift_post_wat (nm)" />
+                <ScalarProperty Name="min_wl_l_drift_post_wat__nm_" ColumnName="min_wl_l_drift_post_wat (nm)" />
+                <ScalarProperty Name="avg_wl_l_drift_post_wat__nm_" ColumnName="avg_wl_l_drift_post_wat (nm)" />
+                <ScalarProperty Name="max_wl_l_drift_post_wat__nm_" ColumnName="max_wl_l_drift_post_wat (nm)" />
+                <ScalarProperty Name="dead_emitter_map_radar_ref" ColumnName="dead_emitter_map_radar_ref" />
+                <ScalarProperty Name="min_na_drift_post_wat" ColumnName="min_na_drift_post_wat" />
+                <ScalarProperty Name="avg_na_drift_post_wat" ColumnName="avg_na_drift_post_wat" />
+                <ScalarProperty Name="max_na_drift_post_wat" ColumnName="max_na_drift_post_wat" />
+                <ScalarProperty Name="min_vf_drift_post_wat__v_" ColumnName="min_vf_drift_post_wat (v)" />
+                <ScalarProperty Name="avg_vf_drift_post_wat__v_" ColumnName="avg_vf_drift_post_wat (v)" />
+                <ScalarProperty Name="max_vf_drift_post_wat__v_" ColumnName="max_vf_drift_post_wat (v)" />
+                <ScalarProperty Name="min_po_drift_post_wat__w_" ColumnName="min_po_drift_post_wat (w)" />
+                <ScalarProperty Name="avg_po_drift_post_wat__w_" ColumnName="avg_po_drift_post_wat (w)" />
+                <ScalarProperty Name="max_po_drift_post_wat__w_" ColumnName="max_po_drift_post_wat (w)" />
+                <ScalarProperty Name="post_wat_max_nf____worst_die_" ColumnName="post_wat_max_nf (#/worst die)" />
+                <ScalarProperty Name="post_bi_max_nf____worst_die_" ColumnName="post_bi_max_nf (#/worst die)" />
+                <ScalarProperty Name="t0_max_nf____worst_die_" ColumnName="t0_max_nf (#/worst die)" />
+                <ScalarProperty Name="exclusion_zone__dppm_" ColumnName="exclusion_zone (dppm)" />
+                <ScalarProperty Name="shippable_zone__dppm_" ColumnName="shippable_zone (dppm)" />
+                <ScalarProperty Name="post_wat_avg_nf__dppm_" ColumnName="post_wat_avg_nf (dppm)" />
+                <ScalarProperty Name="post_bi_avg_nf__dppm_" ColumnName="post_bi_avg_nf (dppm)" />
+                <ScalarProperty Name="t0_avg_nf__dppm_" ColumnName="t0_avg_nf (dppm)" />
+                <ScalarProperty Name="drift_failure" ColumnName="drift_failure" />
+                <ScalarProperty Name="spec_failure" ColumnName="spec_failure" />
+                <ScalarProperty Name="die_count" ColumnName="die_count" />
+                <ScalarProperty Name="line_number" ColumnName="line_number" />
+                <ScalarProperty Name="source_table" ColumnName="source_table" />
+                <ScalarProperty Name="insertion_date" ColumnName="insertion_date" />
+                <ScalarProperty Name="epi_reactor" ColumnName="epi_reactor" />
+                <ScalarProperty Name="iqe_bouleid" ColumnName="iqe_bouleid" />
+                <ScalarProperty Name="wait_released" ColumnName="wait_released" />
+                <ScalarProperty Name="update_by" ColumnName="update_by" />
+                <ScalarProperty Name="loaded_month" ColumnName="loaded_month" />
+                <ScalarProperty Name="source_date" ColumnName="source_date" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="bin_three" ColumnName="bin_three" />
+                <ScalarProperty Name="test_result" ColumnName="test_result" />
+                <ScalarProperty Name="remap_required" ColumnName="remap_required" />
+                <ScalarProperty Name="disposition_code" ColumnName="disposition_code" />
+                <ScalarProperty Name="fab_wafer_id" ColumnName="fab_wafer_id" />
+                <ScalarProperty Name="part_id" ColumnName="part_id" />
+                <ScalarProperty Name="dispo_date" ColumnName="dispo_date" />
+                <ScalarProperty Name="loaded_date" ColumnName="loaded_date" />
+                <ScalarProperty Name="filename" ColumnName="filename" />
+                <ScalarProperty Name="wafer_id" ColumnName="wafer_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_serial_wat_history">
+            <EntityTypeMapping TypeName="MadridTestModel.tbl_serial_wat_history">
+              <MappingFragment StoreEntitySet="tbl_serial_wat_history">
+                <ScalarProperty Name="epi_type" ColumnName="epi_type" />
+                <ScalarProperty Name="modify_date" ColumnName="modify_date" />
+                <ScalarProperty Name="min_Te_CBP_q_post_wat" ColumnName="min_Te_CBP_q_post_wat" />
+                <ScalarProperty Name="avg_Te_CBP_q_post_wat" ColumnName="avg_Te_CBP_q_post_wat" />
+                <ScalarProperty Name="max_Te_CBP_q_post_wat" ColumnName="max_Te_CBP_q_post_wat" />
+                <ScalarProperty Name="min_Te_CBP_a_post_wat" ColumnName="min_Te_CBP_a_post_wat" />
+                <ScalarProperty Name="avg_Te_CBP_a_post_wat" ColumnName="avg_Te_CBP_a_post_wat" />
+                <ScalarProperty Name="max_Te_CBP_a_post_wat" ColumnName="max_Te_CBP_a_post_wat" />
+                <ScalarProperty Name="min_Te_CBP_r_post_wat" ColumnName="min_Te_CBP_r_post_wat" />
+                <ScalarProperty Name="avg_Te_CBP_r_post_wat" ColumnName="avg_Te_CBP_r_post_wat" />
+                <ScalarProperty Name="max_Te_CBP_r_post_wat" ColumnName="max_Te_CBP_r_post_wat" />
+                <ScalarProperty Name="min_T0_CBP_q_post_wat" ColumnName="min_T0_CBP_q_post_wat" />
+                <ScalarProperty Name="avg_T0_CBP_q_post_wat" ColumnName="avg_T0_CBP_q_post_wat" />
+                <ScalarProperty Name="max_T0_CBP_q_post_wat" ColumnName="max_T0_CBP_q_post_wat" />
+                <ScalarProperty Name="min_T0_CBP_a_post_wat" ColumnName="min_T0_CBP_a_post_wat" />
+                <ScalarProperty Name="avg_T0_CBP_a_post_wat" ColumnName="avg_T0_CBP_a_post_wat" />
+                <ScalarProperty Name="max_T0_CBP_a_post_wat" ColumnName="max_T0_CBP_a_post_wat" />
+                <ScalarProperty Name="min_T0_CBP_r_post_wat" ColumnName="min_T0_CBP_r_post_wat" />
+                <ScalarProperty Name="avg_T0_CBP_r_post_wat" ColumnName="avg_T0_CBP_r_post_wat" />
+                <ScalarProperty Name="max_T0_CBP_r_post_wat" ColumnName="max_T0_CBP_r_post_wat" />
+                <ScalarProperty Name="Final_Grading_Result_Remark" ColumnName="Final Grading Result Remark" />
+                <ScalarProperty Name="Failure" ColumnName="Failure" />
+                <ScalarProperty Name="max_sparse_uni_drift_post_wat" ColumnName="max_sparse_uni_drift_post_wat" />
+                <ScalarProperty Name="max_dense_uni_drift_post_wat" ColumnName="max_dense_uni_drift_post_wat" />
+                <ScalarProperty Name="min_w0_drift_post_wat" ColumnName="min_w0_drift_post_wat" />
+                <ScalarProperty Name="avg_w0_drift_post_wat" ColumnName="avg_w0_drift_post_wat" />
+                <ScalarProperty Name="max_w0_drift_post_wat" ColumnName="max_w0_drift_post_wat" />
+                <ScalarProperty Name="min_wl_drift_post_wat__nm_" ColumnName="min_wl_drift_post_wat (nm)" />
+                <ScalarProperty Name="avg_wl_drift_post_wat__nm_" ColumnName="avg_wl_drift_post_wat (nm)" />
+                <ScalarProperty Name="max_wl_drift_post_wat__nm_" ColumnName="max_wl_drift_post_wat (nm)" />
+                <ScalarProperty Name="post_wat_neighbor_failures____" ColumnName="post_wat_neighbor_failures (#)" />
+                <ScalarProperty Name="post_bi_neighbor_failures____" ColumnName="post_bi_neighbor_failures (#)" />
+                <ScalarProperty Name="t0_neighbor_failures____" ColumnName="t0_neighbor_failures (#)" />
+                <ScalarProperty Name="min_wl_r_drift_post_wat__nm_" ColumnName="min_wl_r_drift_post_wat (nm)" />
+                <ScalarProperty Name="avg_wl_r_drift_post_wat__nm_" ColumnName="avg_wl_r_drift_post_wat (nm)" />
+                <ScalarProperty Name="max_wl_r_drift_post_wat__nm_" ColumnName="max_wl_r_drift_post_wat (nm)" />
+                <ScalarProperty Name="min_wl_l_drift_post_wat__nm_" ColumnName="min_wl_l_drift_post_wat (nm)" />
+                <ScalarProperty Name="avg_wl_l_drift_post_wat__nm_" ColumnName="avg_wl_l_drift_post_wat (nm)" />
+                <ScalarProperty Name="max_wl_l_drift_post_wat__nm_" ColumnName="max_wl_l_drift_post_wat (nm)" />
+                <ScalarProperty Name="dead_emitter_map_radar_ref" ColumnName="dead_emitter_map_radar_ref" />
+                <ScalarProperty Name="min_na_drift_post_wat" ColumnName="min_na_drift_post_wat" />
+                <ScalarProperty Name="avg_na_drift_post_wat" ColumnName="avg_na_drift_post_wat" />
+                <ScalarProperty Name="max_na_drift_post_wat" ColumnName="max_na_drift_post_wat" />
+                <ScalarProperty Name="min_vf_drift_post_wat__v_" ColumnName="min_vf_drift_post_wat (v)" />
+                <ScalarProperty Name="avg_vf_drift_post_wat__v_" ColumnName="avg_vf_drift_post_wat (v)" />
+                <ScalarProperty Name="max_vf_drift_post_wat__v_" ColumnName="max_vf_drift_post_wat (v)" />
+                <ScalarProperty Name="min_po_drift_post_wat__w_" ColumnName="min_po_drift_post_wat (w)" />
+                <ScalarProperty Name="avg_po_drift_post_wat__w_" ColumnName="avg_po_drift_post_wat (w)" />
+                <ScalarProperty Name="max_po_drift_post_wat__w_" ColumnName="max_po_drift_post_wat (w)" />
+                <ScalarProperty Name="post_wat_max_nf____worst_die_" ColumnName="post_wat_max_nf (#/worst die)" />
+                <ScalarProperty Name="post_bi_max_nf____worst_die_" ColumnName="post_bi_max_nf (#/worst die)" />
+                <ScalarProperty Name="t0_max_nf____worst_die_" ColumnName="t0_max_nf (#/worst die)" />
+                <ScalarProperty Name="exclusion_zone__dppm_" ColumnName="exclusion_zone (dppm)" />
+                <ScalarProperty Name="shippable_zone__dppm_" ColumnName="shippable_zone (dppm)" />
+                <ScalarProperty Name="post_wat_avg_nf__dppm_" ColumnName="post_wat_avg_nf (dppm)" />
+                <ScalarProperty Name="post_bi_avg_nf__dppm_" ColumnName="post_bi_avg_nf (dppm)" />
+                <ScalarProperty Name="t0_avg_nf__dppm_" ColumnName="t0_avg_nf (dppm)" />
+                <ScalarProperty Name="drift_failure" ColumnName="drift_failure" />
+                <ScalarProperty Name="spec_failure" ColumnName="spec_failure" />
+                <ScalarProperty Name="die_count" ColumnName="die_count" />
+                <ScalarProperty Name="line_number" ColumnName="line_number" />
+                <ScalarProperty Name="source_table" ColumnName="source_table" />
+                <ScalarProperty Name="insertion_date" ColumnName="insertion_date" />
+                <ScalarProperty Name="epi_reactor" ColumnName="epi_reactor" />
+                <ScalarProperty Name="iqe_bouleid" ColumnName="iqe_bouleid" />
+                <ScalarProperty Name="wait_released" ColumnName="wait_released" />
+                <ScalarProperty Name="update_by" ColumnName="update_by" />
+                <ScalarProperty Name="history_type" ColumnName="history_type" />
+                <ScalarProperty Name="history_insertion_date" ColumnName="history_insertion_date" />
+                <ScalarProperty Name="loaded_month" ColumnName="loaded_month" />
+                <ScalarProperty Name="source_date" ColumnName="source_date" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+                <ScalarProperty Name="bin_three" ColumnName="bin_three" />
+                <ScalarProperty Name="test_result" ColumnName="test_result" />
+                <ScalarProperty Name="remap_required" ColumnName="remap_required" />
+                <ScalarProperty Name="disposition_code" ColumnName="disposition_code" />
+                <ScalarProperty Name="fab_wafer_id" ColumnName="fab_wafer_id" />
+                <ScalarProperty Name="part_id" ColumnName="part_id" />
+                <ScalarProperty Name="dispo_date" ColumnName="dispo_date" />
+                <ScalarProperty Name="loaded_date" ColumnName="loaded_date" />
+                <ScalarProperty Name="filename" ColumnName="filename" />
+                <ScalarProperty Name="wafer_id" ColumnName="wafer_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
